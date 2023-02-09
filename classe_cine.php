@@ -59,7 +59,7 @@ function modificar ($servername, $username, $password,$id,$nom,$id_ciutat)
   $conn = $this->connectar_bd($servername,$username,$password);
   try {
   
-    $sql = "UPDATE cine SET nom='$nom', Id_ciutat= '$Id_ciutat'
+    $sql = "UPDATE cine SET nom='$nom', id_ciutat= '$id_ciutat'
     WHERE id='$id'";
 
   // Prepare statement
