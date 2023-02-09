@@ -2,6 +2,39 @@
 <html>
 <head>
 <style>
+  form {
+  width: 500px;
+  margin: 50px auto;
+  text-align: center;
+  padding: 20px;
+  background-color: lightgray;
+  border-radius: 10px;
+}
+
+input[type="text"], input[type="email"], textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: darkblue;
+}
 .error {color: #FF0000;}
 </style>
 </head>
