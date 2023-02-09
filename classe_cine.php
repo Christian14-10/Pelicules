@@ -14,7 +14,7 @@ class cine {
     }
     return $conn;
 }
-public function inserir ($servername,$username,$password,$nom)
+public function inserir ($servername,$username,$password,$nom,$id_ciutat)
 {
     $conn = $this->connectar_bd($servername,$username,$password);
     try {
@@ -27,7 +27,7 @@ public function inserir ($servername,$username,$password,$nom)
       }
       try
       {
-        $sql = "INSERT INTO ciutat (nom) VALUES ('$nom')";
+        $sql = "INSERT INTO cine (nom, id_ciutat) VALUES ('$nom', $id_ciutat)";
         // use exec() because no results are returned
         $conn->exec($sql);
         $last_id = $conn->lastInsertId();
@@ -54,12 +54,12 @@ public function consultaTots ($servername, $username,$password)
     }
 }
 
-function modificar ($servername, $username, $password,$id,$nom)
+function modificar ($servername, $username, $password,$id,$nom,$id_ciutat)
 {
   $conn = $this->connectar_bd($servername,$username,$password);
   try {
   
-    $sql = "UPDATE cine SET nom='$nom',
+    $sql = "UPDATE cine SET nom='$nom', Id_ciutat= '$Id_ciutat'
     WHERE id='$id'";
 
   // Prepare statement

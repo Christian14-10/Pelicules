@@ -2,6 +2,39 @@
 <html>
 <head>
 <style>
+  form {
+  width: 500px;
+  margin: 50px auto;
+  text-align: center;
+  padding: 20px;
+  background-color: lightgray;
+  border-radius: 10px;
+}
+
+input[type="text"], input[type="email"], textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: darkblue;
+}
 .error {color: #FF0000;}
 </style>
 </head>
@@ -51,7 +84,7 @@ function test_input($data) {
 <h2>PHP Form Validation Example</h2>
 <p><span class="error">* required field</span></p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-  Name: <input type="text" name="name" value="<?php echo $name;?>">
+  Genero: <input type="text" name="name" value="<?php echo $name;?>">
   <span class="error">* <?php echo $nameErr;?></span>
   <input type="submit" name="submit" value="Submit">  
 </form>
