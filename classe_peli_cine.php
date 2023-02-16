@@ -54,7 +54,7 @@ public function consultaTots ($servername, $username,$password)
     }
 }
 
-function modificar ($servername, $username, $password,$data)
+function modificar ($servername, $username, $password,$data,$id)
 {
   $conn = $this->connectar_bd($servername,$username,$password);
   try {
