@@ -18,7 +18,7 @@ public function inserir ($servername,$username,$password,$id)
 {
     $conn = $this->connectar_bd($servername,$username,$password);
     try {
-        $conn = new PDO("mysql:host=$servername;dbname=peli_cine", $username, $password);
+        $conn = new PDO("mysql:host=$servername;dbname=cinesa", $username, $password);
         // set the PDO error mode to exception
         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         echo "Connected successfully";
@@ -27,7 +27,7 @@ public function inserir ($servername,$username,$password,$id)
       }
       try
       {
-        $sql = "INSERT INTO client (id) VALUES ($id)";
+        $sql = "INSERT INTO peli_genere (id) VALUES ($id)";
         // use exec() because no results are returned
         $conn->exec($sql);
         $last_id = $conn->lastInsertId();
@@ -59,7 +59,7 @@ function modificar ($servername, $username, $password,$id)
   $conn = $this->connectar_bd($servername,$username,$password);
   try {
   
-    $sql = "UPDATE peli_cine SET id='$id' 
+    $sql = "UPDATE peli_genere SET id='$id' 
     WHERE id='$id'";
 
   // Prepare statement
@@ -84,7 +84,7 @@ function eliminar ($servername,$username,$password, $id)
 try {
   
   // sql to delete a record
-  $sql = "DELETE FROM peli_cine WHERE id='$id'";
+  $sql = "DELETE FROM peli_genere WHERE id='$id'";
 
   // use exec() because no results are returned
   $conn->exec($sql);

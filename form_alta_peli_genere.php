@@ -42,6 +42,7 @@ input[type="submit"]:hover {
 
 <?php
 include "dades_connexio_BD.php";
+include "classe_peli_genere.php";
 include "classe_genere.php";
 include "classe_pelicula.php";
 
@@ -75,12 +76,12 @@ function test_input($data) {
 <p><span class="error">* required field</span></p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
   <?php $pelicula1=new pelicula();?> 
- Pelicula <select name="pelicula" id="ciutat">
+ Pelicula <select name="pelicula" id="pelicula">
 <?php
 $resultat =$pelicula1->consultaTots("localhost","root","iesmanacor");
 $res = $resultat->fetchAll(PDO::FETCH_ASSOC);
 foreach ($res as $fila){
-    echo "<option value='" .$fila["id"]. "'>".$fila["nom"]. "</option>";
+    echo "<option value='" .$fila["id"]. "'>".$fila["titol"]. "</option>";
     }
 ?>
   <span class="error">* <?php echo $peliculaErr;?></span>

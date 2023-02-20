@@ -89,12 +89,12 @@ function test_input($data) {
   <span class="error">* <?php echo $dataErr;?></span>
 <br>
   <?php $pelicula1=new pelicula();?> 
- Pelicula <select name="pelicula" id="ciutat">
+ Pelicula <select name="pelicula" id="pelicula">
 <?php
 $resultat =$pelicula1->consultaTots("localhost","root","iesmanacor");
 $res = $resultat->fetchAll(PDO::FETCH_ASSOC);
 foreach ($res as $fila){
-    echo "<option value='" .$fila["id"]. "'>".$fila["nom"]. "</option>";
+    echo "<option value='" .$fila["id"]. "'>".$fila["titol"]. "</option>";
     }
 ?>
   <span class="error">* <?php echo $peliculaErr;?></span>

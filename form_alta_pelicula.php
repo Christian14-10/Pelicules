@@ -102,10 +102,10 @@ function test_input($data) {
 <h2>PHP Form Validation Example</h2>
 <p><span class="error">* required field</span></p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-  data estreno: <input type="date" data_estreno="data_estreno" value="<?php echo $data_estreno;?>">
+  data estreno: <input type="date" name="data_estreno" value="<?php echo $data_estreno;?>">
   <span class="error">* <?php echo $data_estrenoErr;?></span> 
   <br>  
-  Durada: <input type="number" durada="durada" value="<?php echo $durada;?>">
+  Durada: <input type="number" name="durada" value="<?php echo $durada;?>">
   <span class="error">* <?php echo $duradaErr;?></span>
   <br>
   Titulo: <input type="text" name="titol" value="<?php echo $titol;?>">

@@ -47,7 +47,7 @@ include "classe_ciutat.php";
 
 // define variables and set to empty values
 $nameErr =$id_ciutatErr ="";
-$name = ""; 
+$name = $id_ciutat = ""; 
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
