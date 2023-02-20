@@ -59,13 +59,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
   }
-  if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_POST["data_estreno"])) {
-      $data_estrenoErr = "data estreno is required";
-    } else {
-      $data_estreno = test_input($_POST["data_estreno"]);
-    }
-}
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (empty($_POST["durada"])) {
           $duradaErr = "durada is required";
@@ -78,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $titol = test_input($_POST["titol"]);
     $data_estreno = test_input($_POST["data_estreno"]);
     $durada = test_input($_POST["durada"]);
-
+b 
   }
   else  //Les dades són correctes
   {

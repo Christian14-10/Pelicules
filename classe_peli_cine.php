@@ -1,4 +1,4 @@
-<html>
+<html></html>
 <?php
 class peli_cine {
 
@@ -27,7 +27,7 @@ public function inserir ($servername,$username,$password,$data)
       }
       try
       {
-        $sql = "INSERT INTO client (data) VALUES ($data)";
+        $sql = "INSERT INTO peli_cine (data) VALUES ($data)";
         // use exec() because no results are returned
         $conn->exec($sql);
         $last_id = $conn->lastInsertId();
