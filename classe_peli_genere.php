@@ -27,7 +27,7 @@ public function inserir ($servername,$username,$password,$id)
       }
       try
       {
-        $sql = "INSERT INTO peli_genere (id) VALUES ($id)";
+        $sql = "INSERT INTO peli_genere (id) VALUES ('$id')";
         // use exec() because no results are returned
         $conn->exec($sql);
         $last_id = $conn->lastInsertId();

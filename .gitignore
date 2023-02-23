@@ -6,3 +6,6 @@
 7_select.php
 8_delete.php
 9_update.php
+1_connexio_BD.php
+classe_client.php
+form_alta.php

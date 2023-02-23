@@ -35,12 +35,24 @@ nav ul li a:hover {
   color: #333;
 }
 </style>
+
+<?php
+include "dades_connexio_BD.php";
+include "classe_cine.php";
+include "classe_ciutat.php";
+include "classe_genere.php";
+include "classe_peli_cine.php";
+include "classe_peli_genere.php";
+include "classe_pelicula.php";
+?>
 <nav>
   <ul>
-    <li><a href="#">Inicio</a></li>
-    <li><a href="#">Películas</a></li>
-    <li><a href="#">Eventos</a></li>
-    <li><a href="#">Contacto</a></li>
+    <li><a href="/form_alta_cine.php" target="_Blank">Alta_cine</a></li>
+    <li><a href="/form_alta_ciutat.php" target="_Blank">Alta_ciutat</a></li>
+    <li><a href="/form_alta_genere.php" target="_Blank">Alta_genere</a></li>
+    <li><a href="/form_alta_pelicula.php" target="_Blank">Alta_pelicula</a></li>
+    <li><a href="/form_alta_peli_cine.php" target="_Blank">Alta_peli_cine</a></li>
+    <li><a href="/form_alta_peli_genere.php" target="_Blank">Alta_peli_genere</a></li>
   </ul>
 </nav>
 </html>

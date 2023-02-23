@@ -42,43 +42,33 @@ input[type="submit"]:hover {
 
 <?php
 include "dades_connexio_BD.php";
+include "classe_cine.php";
 include "classe_pelicula.php";
 
 // define variables and set to empty values
-$titolErr = $data_estrenoErr = $duradaErr = "";
-$titol = $data_estreno = $durada = ""; 
+$dataErr = "";
+$data = ""; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  if (empty($_POST["titol"])) {
-    $titolErr = "titol is required";
+  if (empty($_POST["data"])) {
+    $nameErr = "data is required";
   } else {
-    $titol = test_input($_POST["titol"]);
+    $name = test_input($_POST["data"]);
     // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z-' ]*$/",$titol)) {
-      $titolErr = "Only letters and white space allowed";
+    if (!preg_match("/^[a-zA-Z-' ]*$/",$data)) {
+      $dataErr = "Only letters and white space allowed";
     }
     
   }
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        if (empty($_POST["durada"])) {
-          $duradaErr = "durada is required";
-        } else {
-          $durada = test_input($_POST["durada"]);
-        }
-    }
-  if ($titolErr != "" or $data_estrenoErr != "" or $duradaErr != "") //Hi ha errors
+  if ($dataErr != "") //Hi ha errors
   {
-    $titol = test_input($_POST["titol"]);
-    $data_estreno = test_input($_POST["data_estreno"]);
-    $durada = test_input($_POST["durada"]); 
+    $data = test_input($_POST["data"]);
   }
   else  //Les dades són correctes
   {
-    $pelicula = new pelicula();
-    $pelicula -> inserir($servername,$username,$password,$titol,$data_estreno,$durada);
-    $titol="";
-    $data_estreno="";
-    $durada="";
+    $peli_cine = new peli_cine();
+    $peli_cine -> eliminar($servername,$username,$password,$data);
+    $data="";
   }
 
 
@@ -91,19 +81,41 @@ function test_input($data) {
   return $data;
 }
 ?>
+
 <h2>PHP Form Validation Example</h2>
 <p><span class="error">* required field</span></p>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-  data estreno: <input type="date" name="data_estreno" value="<?php echo $data_estreno;?>">
-  <span class="error">* <?php echo $data_estrenoErr;?></span> 
-  <br>  
-  Durada: <input type="number" name="durada" value="<?php echo $durada;?>">
-  <span class="error">* <?php echo $duradaErr;?></span>
+  date: <input type="date" name="name" value="<?php echo $name;?>">
+  <span class="error">* <?php echo $dataErr;?></span>
+<br>
+  <?php $pelicula1=new pelicula();?> 
+ Pelicula <select name="pelicula" id="pelicula">
+<?php
+$resultat =$pelicula1->consultaTots("localhost","root","iesmanacor");
+$res = $resultat->fetchAll(PDO::FETCH_ASSOC);
+foreach ($res as $fila){
+    echo "<option value='" .$fila["id"]. "'>".$fila["titol"]. "</option>";
+    }
+?>
+  <span class="error">* <?php echo $peliculaErr;?></span>
+</select>
+  </input>
   <br>
-  Titulo: <input type="text" name="titol" value="<?php echo $titol;?>">
-  <span class="error">* <?php echo $titolErr;?></span>
-  <input type="submit" name="submit" value="Submit">  
+  <?php $cine1=new cine();?> 
+ Cine: <select name="cine" id="cine">
+<?php
+$resultat =$cine1->consultaTots("localhost","root","iesmanacor");
+$res = $resultat->fetchAll(PDO::FETCH_ASSOC);
+foreach ($res as $fila){
+    echo "<option value='" .$fila["id"]. "'>".$fila["nom"]. "</option>";
+    }
+?>
+  <span class="error">* <?php echo $cineErr;?></span>
+</select>
+  <input type="submit" name="submit" value="Submit"> 
+  </input>
 </form>
+
 
 
 <?php
